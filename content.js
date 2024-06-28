@@ -1,3 +1,11 @@
+/**
+ * @description Sets up a floating div containing a circle icon button and a main UI,
+ * and adds an event listener to the circle icon to toggle the size of the main UI.
+ * It also appends the floating div to the document body.
+ * 
+ * @returns { integer } a responsive chat UI with a floating div containing an icon
+ * button and a main UI.
+ */
 function createUI() {
 
     const elementStyle = {
@@ -220,6 +228,17 @@ function createUI() {
         });
     });
     
+    /**
+     * @description Uses `fetch` API to retrieve a JSON response from Bubble's API endpoint,
+     * extracts the message balance from the response data, and resolves the promise with
+     * the balance value.
+     * 
+     * @param { string } apiKeyValue - API key value used to filter the user data in the
+     * Bubble API endpoint, and it is included in the query parameter of the API endpoint
+     * fetched by the function.
+     * 
+     * @returns { integer } the message balance of the user, or '0' if there's an error.
+     */
     function get_balance(apiKeyValue) {
         return new Promise((resolve, reject) => {
             // Define the API endpoint with the apiKeyValue included in the query parameter
@@ -252,6 +271,10 @@ function createUI() {
 
     
     // Function to click the Messages tab
+    /**
+     * @description Clicked the Messages tab of a web application's navigation menu when
+     * it was called.
+     */
     function clickMessagesTab() {
         const messagesTab = document.querySelector('a[href="/direct/inbox/"]');
         if (messagesTab) {
@@ -276,6 +299,11 @@ function createUI() {
 
     // }
 
+    /**
+     * @description Searches for a specified HTML element with a specific class name and
+     * logs a message to the console if the element is found. If the element is found,
+     * it triggers the `click()` method on the element.
+     */
     function clickNewMessageButton() {
         const newMessageButton = document.querySelector('.x1i10hfl.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x6s0dn4.xjbqb8w.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x1ypdohk.x78zum5.xl56j7k.x1y1aw1k.x1sxyh0.xwib8y2.xurb0ha.xcdnw81');
     
@@ -288,6 +316,12 @@ function createUI() {
     }
     
 
+    /**
+     * @description Sets the value of a search input field to a given username and triggers
+     * an event to update the field, logging success or failure of the operation.
+     * 
+     * @param { string } username - value that will be entered into the search input field.
+     */
     function enterUsernameInSearch(username) {
         const searchInput = document.querySelector('input[placeholder="Search..."]');
         if (searchInput) {
@@ -299,6 +333,14 @@ function createUI() {
         }
     }
     
+    /**
+     * @description Detects and clicks a checkbox associated with a specific user's
+     * username in an HTML document, using JavaScript.
+     * 
+     * @param { string } username - trimmed and lowercased username of a user to search
+     * for a corresponding checkbox within the document, and clicking it will log a message
+     * in the console.
+     */
     function clickCheckboxByUsername(username) {
         const spans = Array.from(document.querySelectorAll('span.x1lliihq.x193iq5w.x6ikm8r.x10wlt62.xlyipyv.xuxw1ft'));
         const targetSpan = spans.find(span => span.textContent.trim().toLowerCase() === username.toLowerCase());
@@ -322,6 +364,10 @@ function createUI() {
     }
 
     
+    /**
+     * @description Clicks the Chat button on the page, and if it's found, logs "Clicked
+     * the Chat button" to the console.
+     */
     function clickChatButton() {
         const chatButton = document.querySelector('div[role="button"][tabindex="0"].x1i10hfl.xjqpnuy.xa49m3k.xqeqjp1.x2hbi6w.x972fbf.xcfux6l.x1qhh985.xm0m39n.xdl72j9.x2lah0s.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x2lwn1j.xeuugli.xexx8yu.x18d9i69.x1hl2dhg.xggy1nq.x1ja2u2z.x1t137rt.x1q0g3np.x1lku1pv.x1a2a7pz.x6s0dn4.xjyslct.x1lq5wgf.xgqcy7u.x30kzoy.x9jhf4c.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x9f619.x9bdzbf.x1ypdohk.x78zum5.x1f6kntn.xwhw2v2.xl56j7k.x17ydfre.x1n2onr6.x2b8uid.xlyipyv.x87ps6o.x14atkfc.xcdnw81.x1i0vuye.xn3w4p2.x5ib6vp.xc73u3c.x1tu34mt.xzloghq');
         if (chatButton) {
@@ -332,6 +378,13 @@ function createUI() {
         }
     }
     
+    /**
+     * @description Focuses on a given text box and inserts a specified message using the
+     * `insertText` command.
+     * 
+     * @param { string } message - text to be inserted into the provided textbox, which
+     * is selected and focused by the function.
+     */
     function inputMessage(message) {
         const textbox = document.querySelector('.xzsf02u.x1a2a7pz.x1n2onr6.x14wi4xw.x1iyjqo2.x1gh3ibb.xisnujt.xeuugli.x1odjw0f');
       
@@ -359,6 +412,10 @@ function createUI() {
     
       
     
+    /**
+     * @description Clicks the "send" button within an HTML element with a specified CSS
+     * selector, and logs a message to the console upon success.
+     */
     function clickSendButton() {
         const selector = '.x1i10hfl.xjqpnuy.xa49m3k.xqeqjp1.x2hbi6w.xdl72j9.x2lah0s.xe8uvvx.xdj266r.xat24cr.x1mh8g0r.x2lwn1j.xeuugli.x1hl2dhg.xggy1nq.x1ja2u2z.x1t137rt.x1q0g3np.x1lku1pv.x1a2a7pz.x6s0dn4.xjyslct.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x9f619.x1ypdohk.x1f6kntn.xwhw2v2.xl56j7k.x17ydfre.x2b8uid.xlyipyv.x87ps6o.x14atkfc.xcdnw81.x1i0vuye.xjbqb8w.xm3z3ea.x1x8b98j.x131883w.x16mih1h.x972fbf.xcfux6l.x1qhh985.xm0m39n.xt0psk2.xt7dq6l.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6.x1n5bzlp.x173jzuc.x1yc6y37.xfs2ol5';
         const button = document.querySelector(selector);
@@ -372,6 +429,16 @@ function createUI() {
     }
     
       
+    /**
+     * @description Updates a user's message balance on a Bubble app API endpoint using
+     * their API key and username.
+     * 
+     * @param { string } apikey - 10-digit API key required to authenticate and access
+     * the Bubble Apps Messages endpoint for updating message balance.
+     * 
+     * @param { string } username - 2FA authentication code sent to the user's phone,
+     * which is used to update the message balance for the user on Bubble's API.
+     */
     function updateMessages(apikey, username) {
         const bubbleApiEndpoint = "https://massdm.bubbleapps.io/api/1.1/wf/messagesent";
         const bubbleApiToken = "0524cc33885747ae0493174cf44c251f";
@@ -401,6 +468,14 @@ function createUI() {
     
     
     
+    /**
+     * @description Inputs a specified username, waits for the user to appear in search
+     * results, clicks the user from the search results, and then clicks the Chat button.
+     * 
+     * @param { string } username - username for which the user will be searched and
+     * appears in the search results, allowing the user to click on the user's profile
+     * to initiate a chat.
+     */
     async function startChat(username) {
         // Input the username
         const usernameInput = document.querySelector('input[placeholder="Search"]');
@@ -480,6 +555,10 @@ function createUI() {
 
     
     // Function to toggle the size of the floating div
+    /**
+     * @description Adjusts the width and height of a `floatingDiv`, and shows or hides
+     * a `mainUI` based on its initial width value.
+     */
     function toggleSize() {
         if (floatingDiv.style.width === "100px") {
             // Expand the floating div
